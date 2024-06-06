@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <title>Produtos</title>
+    </head>
+    <body>
+        <h1>Lista de Produtos</h1>
+        
+        <a href="{% url 'criar_produto' %}">Adicionar Produto</a>
+        <ul>
+            {% for produto in produtos %}
+                <li>
+                    {{ produto.nome }} - {{ produto.quantidade }}
+                    <a href="{% url 'editar_produto' produto.pk %}">Editar</a>
+                    <a href="{% url 'excluir_produto' produto.pk %}">Excluir</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'movimentacao_estoque' %}">Entrada/Saída Produtos</a>
+
+        <div class="container mt-5">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Unidade medida</th>
+                        <th>Marca</th>
+                        <th>Armazenamento</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto.descricao }}</td>
+                        <td>{{ produto.estoque_atual }}</td>
+                        <td>{{ produto.unidade_medida }}</td>
+                        <td>{{ produto.marca }}</td>
+                        <td>{{ produto.armazenamento }}</td>
+                        <td>{{ produto.categoria }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+    </body>
+</html>
+
+

@@ -1,0 +1,36 @@
+<!-- templates/produtos/produto_form.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de produto</title>
+    </head>
+    <body>
+        <h1>{% if form.instance.pk %}Editar Produto{% else %}Cadastro de Produto{% endif %}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Salvar</button>
+        </form>
+        <div>
+            <a href="{% url 'lista_produtos' %}">Cancelar</a>
+        </div>
+        <div>
+            <a href="{% url 'cadastroCategoria' %}">Cadastrar Categoria</a>
+        </div>
+        <div>
+            <a href="{% url 'cadastroArmazenamento' %}">Cadastrar Armazenamento</a>
+        </div>
+        <div>
+            <a href="{% url 'cadastroUniMed' %}">Cadastrar Unidade de Medida</a>
+        </div>
+        <div>
+            <a href="{% url 'cadastroMarca' %}">Cadastrar Marca</a>
+        </div>
+    </body>
+</html>
+
+
+
+

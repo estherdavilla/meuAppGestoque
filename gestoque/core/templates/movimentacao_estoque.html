@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrar Movimentação de Estoque</title>
+    </head>
+    <body class="principal">
+        <h1>Registrar Movimentação de Estoque</h1>
+        <form method="post">
+            {% csrf_token %}  <!-- Protege contra ataques CSRF -->
+            {{ form.as_p }}  <!-- Exibe o formulário -->
+            <button type="submit">Salvar</button>
+        </form>
+        <a href="{% url 'lista_produtos' %}">Voltar à Lista de Produtos</a>  <!-- Link para voltar à lista de produtos -->
+    </body>
+</html>
+

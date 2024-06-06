@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastrar Armazenamento</title>
+    </head>
+    <body>
+        <div>
+            <h1>Cadastrar Armazenamento</h1>
+            <form method="post">
+                {% csrf_token %}  <!-- Protege contra ataques CSRF -->
+                {{ form.as_p }}  <!-- Exibe o formulário -->
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+        <div>
+            <a href="{% url 'criar_produto' %}">Cadastrar produto</a>
+        </div>
+        <div>
+            <a href="{% url 'cadastroCategoria' %}">Cadastrar Categoria</a>
+        </div>
+        <div>
+            <a href="{% url 'cadastroUniMed' %}">Cadastrar Unidade de Medida</a>
+        </div>
+        <div>
+            <a href="{% url 'cadastroMarca' %}">Cadastrar Marca</a>
+        </div>
+        
+    </body>
+</html>
